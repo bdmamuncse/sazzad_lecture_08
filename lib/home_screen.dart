@@ -49,16 +49,67 @@ class _HomeScreenState extends State<HomeScreen> {
      drawer: Drawer(
        child: ListView(
          children: [
+
+           UserAccountsDrawerHeader(
+               accountName: const Text('Md. Sazzad Hossain'),
+               accountEmail: const Text('sazzad.hossain@thecitybank.com'),
+             currentAccountPicture: Image.network(
+                 'https://img.icons8.com/office/344/user.png',
+             ),
+           ),
+
+           // Container(
+           //   height: 200,
+           //   color: Colors.amber,
+           //   child: ,
+           // ),
+
+
            ListTile(
-             title: const Text('Home'),
+             title: Text(drawerItem[0]),
              subtitle: const Text('testing 2 more'),
-             leading: Image.network('https://media-exp1.licdn.com/dms/image/C4E03AQHjlM5aXG1e_Q/profile-displayphoto-shrink_800_800/0/1517668488168?e=1646870400&v=beta&t=NPDpC3l41VrpsBNT7AhTmX4aK02Ag7H8kmSRtEG4ckg'),
+             leading: const Icon(Icons.home_outlined),
+             trailing: Icon(Icons.arrow_forward_ios),
+             onTap: (){
+               print('${drawerItem[0]} item clicked');
+             },
+             onLongPress: (){
+               print('${drawerItem[0]} item clicked');
+             },
+
              // leading: Icon(Icons.supervised_user_circle),
            ),
-           // Text(drawerItem[0]),
-           // Text(drawerItem[1]),
-           // Text(drawerItem[2]),
-           // Text(drawerItem[3]),
+           const Divider(height: 1,),
+           ListTile(
+             title: Text(drawerItem[1]),
+             subtitle: const Text('testing 2 more'),
+             leading: const Icon(Icons.category),
+             trailing: const Icon(Icons.arrow_forward_ios),
+             onTap: (){
+               print('${drawerItem[1]} item clicked');
+             },
+
+             // leading: Icon(Icons.supervised_user_circle),
+           ),
+           Divider(height: 1,),
+           ListTile(
+             title: Text(drawerItem[2]),
+             subtitle: const Text('testing 2 more'),
+             leading: const Icon(Icons.favorite),
+             trailing: const Icon(Icons.arrow_forward_ios),
+
+             // leading: Icon(Icons.supervised_user_circle),
+           ),
+           Divider(height: 1,),
+           ListTile(
+             title: Text(drawerItem[3]),
+             subtitle: const Text('testing 2 more'),
+             leading: const Icon(Icons.recent_actors_outlined),
+             trailing: Icon(Icons.arrow_forward_ios),
+
+             // leading: Icon(Icons.supervised_user_circle),
+           ),
+
          ],
        ),
      ),
