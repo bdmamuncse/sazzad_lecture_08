@@ -9,6 +9,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
  String pageTitle='';
  var controller=TextEditingController();
+ var drawerItem=['home','category','favourite','recent'];
 
  @override
   void initState(){
@@ -45,7 +46,22 @@ class _HomeScreenState extends State<HomeScreen> {
          Text('click', overflow:TextOverflow.ellipsis,style: TextStyle(color: Colors.black),))
        ],
      ),
-     drawer: const Drawer(),
+     drawer: Drawer(
+       child: ListView(
+         children: [
+           ListTile(
+             title: const Text('Home'),
+             subtitle: const Text('testing 2 more'),
+             leading: Image.network('https://media-exp1.licdn.com/dms/image/C4E03AQHjlM5aXG1e_Q/profile-displayphoto-shrink_800_800/0/1517668488168?e=1646870400&v=beta&t=NPDpC3l41VrpsBNT7AhTmX4aK02Ag7H8kmSRtEG4ckg'),
+             // leading: Icon(Icons.supervised_user_circle),
+           ),
+           // Text(drawerItem[0]),
+           // Text(drawerItem[1]),
+           // Text(drawerItem[2]),
+           // Text(drawerItem[3]),
+         ],
+       ),
+     ),
      body: Container(
        color: Colors.blueGrey,
      ),
