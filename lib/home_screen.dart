@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -69,12 +70,15 @@ class _HomeScreenState extends State<HomeScreen> {
              title: Text(drawerItem[0]),
              subtitle: const Text('testing 2 more'),
              leading: const Icon(Icons.home_outlined),
-             trailing: Icon(Icons.arrow_forward_ios),
+             trailing: const Icon(Icons.arrow_forward_ios),
              onTap: (){
+               Fluttertoast.showToast(
+                   msg: 'Login Success',
+               );
                print('${drawerItem[0]} item clicked');
              },
              onLongPress: (){
-               print('${drawerItem[0]} item clicked');
+               Fluttertoast.showToast(msg: 'Home Long pressed');
              },
 
              // leading: Icon(Icons.supervised_user_circle),
@@ -86,12 +90,13 @@ class _HomeScreenState extends State<HomeScreen> {
              leading: const Icon(Icons.category),
              trailing: const Icon(Icons.arrow_forward_ios),
              onTap: (){
+               Fluttertoast.showToast(msg:'Category pressed',);
                print('${drawerItem[1]} item clicked');
              },
 
              // leading: Icon(Icons.supervised_user_circle),
            ),
-           Divider(height: 1,),
+           const Divider(height: 1,),
            ListTile(
              title: Text(drawerItem[2]),
              subtitle: const Text('testing 2 more'),
@@ -100,12 +105,12 @@ class _HomeScreenState extends State<HomeScreen> {
 
              // leading: Icon(Icons.supervised_user_circle),
            ),
-           Divider(height: 1,),
+           const Divider(height: 1,),
            ListTile(
              title: Text(drawerItem[3]),
              subtitle: const Text('testing 2 more'),
              leading: const Icon(Icons.recent_actors_outlined),
-             trailing: Icon(Icons.arrow_forward_ios),
+             trailing: const Icon(Icons.arrow_forward_ios),
 
              // leading: Icon(Icons.supervised_user_circle),
            ),
@@ -114,7 +119,112 @@ class _HomeScreenState extends State<HomeScreen> {
        ),
      ),
      body: Container(
-       color: Colors.blueGrey,
+       // color: Colors.blueGrey,
+       child: SingleChildScrollView(
+         scrollDirection: Axis.vertical,
+         child: Column(
+           children: [
+             Container(
+               alignment: Alignment.centerLeft,
+               margin: const EdgeInsets.all(10),
+               height: 200,
+               width: double.infinity,
+               decoration: BoxDecoration(
+                 color: Colors.yellow,
+                 borderRadius: const BorderRadius.only(
+                   topLeft: Radius.circular(50),
+                   topRight: Radius.circular(50),
+                 ),
+                 border: Border.all(color: Colors.black,width: 2),
+                 boxShadow: const [BoxShadow(color: Colors.black),],
+               ),
+               child: Row(
+                 crossAxisAlignment: CrossAxisAlignment.center,
+                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                 children: const [
+                   Icon(Icons.home),
+                   Icon(Icons.category_outlined),
+                   Icon(Icons.person),
+                   Icon(Icons.add),
+                 ],
+               ),
+             ),
+             ListTile(
+               title: Text(drawerItem[0]),
+               subtitle: Text('Last seen 4 days ago'),
+               leading: Icon(Icons.home_outlined),
+               trailing: Icon(Icons.arrow_forward_ios),
+               onTap: (){
+                 Fluttertoast.showToast(
+                   msg: 'Login success',
+                 );
+                 print('${drawerItem[0]} item clicked');
+               },
+               onLongPress: (){
+                 Fluttertoast.showToast(
+                     msg: 'Home Long Pressed',
+                 );
+               },
+             ),
+             Divider(height: 4,),
+             ListTile(
+               title: Text(drawerItem[1]),
+               subtitle: Text('favorite item'),
+               leading: Icon(Icons.favorite),
+               trailing: Icon(Icons.arrow_forward_ios),
+               onTap: (){
+                 Fluttertoast.showToast(
+                   msg: 'favorite item',
+                 );
+                 print('${drawerItem[1]} item clicked');
+               },
+               onLongPress: (){
+                 Fluttertoast.showToast(
+                   msg: 'favorite item Long Pressed',
+                 );
+               },
+             ),
+             Divider(height: 4,),
+             ListTile(
+               title: Text(drawerItem[2]),
+               subtitle: Text('User portion clicked'),
+               leading: Icon(Icons.verified_user),
+               trailing: Icon(Icons.arrow_forward_ios),
+               onTap: (){
+                 Fluttertoast.showToast(
+                   msg: 'User portion clicked',
+                 );
+                 print('${drawerItem[2]} item clicked');
+               },
+               onLongPress: (){
+                 Fluttertoast.showToast(
+                   msg: 'User portion clicked Long Pressed',
+                 );
+               },
+             ),
+             Divider(height: 4,),
+             ListTile(
+               title: Text(drawerItem[3]),
+               subtitle: Text('add item clicked'),
+               leading: Icon(Icons.add_a_photo),
+               trailing: Icon(Icons.arrow_forward_ios),
+               onTap: (){
+                 Fluttertoast.showToast(
+                   msg: 'add item clicked',
+                 );
+                 print('${drawerItem[3]} item clicked');
+               },
+               onLongPress: (){
+                 Fluttertoast.showToast(
+                   msg: 'add item clicked Long Pressed',
+                 );
+               },
+             ),
+             Divider(height: 4,),
+
+           ],
+         ),
+       ),
      ),
    );
   }
